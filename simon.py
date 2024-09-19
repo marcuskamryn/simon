@@ -47,12 +47,11 @@ def display_sequence(lst):
 the_list = []
 
 while True:
-    ##print("Add to Sequence (Press white button)")
-    #print("Display Sequence (Press black button)")
-    #print("Exit Program (Press orange button)")
-    if white.value == True:
+    if white.value:
         add_to_sequence(the_list)
-    elif black.value == True:
+        time.sleep(.20)
+    elif black.value:
         display_sequence(the_list)
-    elif orange.value == True:
+        time.sleep(.20)
+    elif orange.value:
         the_list = []
