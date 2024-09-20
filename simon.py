@@ -4,25 +4,29 @@ from digitalio import DigitalInOut, Direction
 import time
 
 
-red = DigitalInOut(board.D2)
-red.direction = Direction.OUTPUT
-
-green = DigitalInOut(board.D3)
-green.direction = Direction.OUTPUT
-
-yellow = DigitalInOut(board.D4)
-yellow.direction = Direction.OUTPUT
-
-blue = DigitalInOut(board.D5)
+blue = DigitalInOut(board.D2)
 blue.direction = Direction.OUTPUT
 
+yellow = DigitalInOut(board.D3)
+yellow.direction = Direction.OUTPUT
 
-white = DigitalInOut(board.D6)
-white.direction = Direction.INPUT
-black = DigitalInOut(board.D7)
-black.direction = Direction.INPUT
-orange = DigitalInOut(board.D8)
-orange.direction = Direction.INPUT
+green = DigitalInOut(board.D4)
+green.direction = Direction.OUTPUT
+
+red = DigitalInOut(board.D5)
+red.direction = Direction.OUTPUT
+
+
+blue_button = DigitalInOut(board.D6)
+blue_button.direction = Direction.INPUT
+yellow_button = DigitalInOut(board.D7)
+yellow_button.direction = Direction.INPUT
+green_button = DigitalInOut(board.D8)
+green_button.direction = Direction.INPUT
+red_button = DigitalInOut(board.D9)
+red_button.direction = Direction.INPUT
+white_button = DigitalInOut(board.D10)
+white_button.direction = Direction.INPUT
 
 def add_to_sequence(lst):
     lst.append(random.randint(0, 3))
@@ -47,11 +51,7 @@ def display_sequence(lst):
 the_list = []
 
 while True:
-    if white.value:
+    if white_button.value:
         add_to_sequence(the_list)
-        time.sleep(.20)
-    elif black.value:
         display_sequence(the_list)
-        time.sleep(.20)
-    elif orange.value:
-        the_list = []
+        
