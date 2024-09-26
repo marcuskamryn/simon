@@ -48,10 +48,42 @@ def display_sequence(lst):
         if x == 3:
             on_off(blue)
 
+def user_sequence(lst):
+    if blue_button.value:
+         lst.append(3)
+    if yellow_button.value:
+         lst.append(2)
+    if green_button.value:
+         lst.append(1)
+    if red_button.value:
+        lst.append(0)
+
+def reset():
+    game_start = False
+    the_list = []
+    user_list = []
+    display_score()
+    
+def display_score():
+    ones = score % 10
+    tens = score / 10
+    for i in range(tens):
+        on_off(green)
+    for j in range (ones):
+        on_off(red)
+        
+def check_list(lst_one, lst_two):
+    pass
+        
+
 the_list = []
+user_list = []
+global game_start = False
+global score = 0
 
 while True:
     if white_button.value:
         add_to_sequence(the_list)
         display_sequence(the_list)
+        pass
         
