@@ -63,6 +63,9 @@ def reset():
     the_list = []
     user_list = []
     display_score()
+    """
+resets the game after 
+    """
     
 def display_score():
     ones = score % 10
@@ -71,19 +74,33 @@ def display_score():
         on_off(green)
     for j in range (ones):
         on_off(red)
+    
+    """
+Supposed to display the final score with the first leds on the right hand side of my board bu using the green light as the tens
+place and the red light as the ones place.
+    """
         
 def check_list(lst_one, lst_two):
-    pass
+    global score
+    
+    
+    
+    if lst_one == lst_two:
+        score = score + 1
+    else:
+        reset()
         
-
 the_list = []
 user_list = []
-global game_start = False
-global score = 0
+game_start = False
+score = 0
 
 while True:
     if white_button.value:
         add_to_sequence(the_list)
         display_sequence(the_list)
         pass
-        
+    if blue_button.value or green_button.value or yellow_button.value or red_button.value:
+        user_sequence(user_list)
+        display_sequence(user_list)
+        pass
